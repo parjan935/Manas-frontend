@@ -5,80 +5,102 @@ import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CiLogout } from "react-icons/ci";
 import axios from "axios";
-
-
+import { IoIosArrowForward } from "react-icons/io";
+import Changepassword from "./Changepassword";
 
 const Navbar = () => {
-  
-  const [visible, setVisible] = useState(false);
+  const [det_visible, setdet_Visible] = useState(false);
+
   const [menu_visible, setmenu_Visible] = useState(false);
 
-  // const [user, setUser] = useState(null);
-
   var p;
-  const [userdata,setuserdata]=useState({
-    name:"",
-    rollno:"",
-    phoneno:"",
-  })
 
+  const [userdata, setuserdata] = useState({
+    name: "",
+    section: "",
+    email: "",
+    password: "",
+    rollno: "",
+    phoneno: "",
+  });
 
   const [error, setError] = useState(null);
-
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const accessToken = localStorage.getItem('accessToken');
-        console.log("AC===",accessToken)
+        const accessToken = localStorage.getItem("accessToken");
+        console.log("Token : ", accessToken);
         if (!accessToken) {
-          setError('Access token not found'); // Handle missing token
+          setError("Access token not found"); // Handle missing token
           return;
         }
-        const response = await axios.get('http://localhost:3000/api/users/student-profile', {
-          headers: {
-            'Authorization': `Bearer ${accessToken}`,
-            'Content-Type': 'application/json',
+        const response = await axios.get(
+          "http://localhost:3000/api/users/student-profile",
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+              "Content-Type": "application/json",
+            },
           }
-        });
-        console.log("res===",response)
+        );
+        // console.log("res===", response);
 
         if (response && response.data) {
-          p=response.data
+          p = response.data;
           setuserdata({
-            name:p.name,
-            rollno:p.rollno,
-            phoneno:p.phoneno,
-
-          })
-          console.log("v==",v)
-          console.log(response.data)
-          console.log("p==",p)
-          console.log("p==",p.name)
+            name: p.name,
+            rollno: p.rollno,
+            phoneno: p.phoneno,
+            section: p.section,
+            email: p.email,
+            password: p.password,
+          });
+          // console.log("v==", v);
+          console.log(response.data);
+          // console.log("p==", p);
+          // console.log("p==", p.name);
         }
       } catch (error) {
         console.log(error);
-        setError(error.message || 'An error occurred while fetching user data.');
+        setError(
+          error.message || "An error occurred while fetching user data."
+        );
       }
     };
 
     fetchData();
   }, []);
 
+  const [visiblecode, setVisiblecode] = useState(false);
+  const [showChangePassword, setShowChangePassword] = useState(false);
+
+  const openChangePassword = () => {
+    setShowChangePassword(!showChangePassword);
+    setdet_Visible(false);
+  };
+
 
   return (
+    // Navbar
     <nav className="Navbar">
       <div className="left-menu">
-        <li onClick={() => setmenu_Visible(true)}><GiHamburgerMenu style={{fontSize:"30px"}}/></li>
-        {/* <GiHamburgerMenu /> */}
+        <li onClick={() => setmenu_Visible(true)}>
+          <GiHamburgerMenu style={{ fontSize: "30px" }} />
+        </li>
         <div className="Nav-left">
-          <h1>Dashboard</h1>
+          <h1>
+            <Link to="/dashboard">Dashboard</Link>
+          </h1>
           <p>Here's the information about your activity and mental condition</p>
         </div>
       </div>
+
+      {/* Menu Modal */}
+
       <Modal
         isOpen={menu_visible}
-        onRequestClose={() => setmenu_Visible(false)} 
+        // onRequestClose={() => setmenu_Visible(false)}
         style={{
           content: {
             width: "fit-content",
@@ -86,7 +108,7 @@ const Navbar = () => {
             overflow: "hidden",
             top: "0%",
             left: "0%",
-            padding:"0px",
+            padding: "0px",
           },
         }}
       >
@@ -100,47 +122,92 @@ const Navbar = () => {
             <li>
               <Link to="/dashboard/calendar">Calendar</Link>
             </li>
-            <li>Psychologist</li>
+            <li>Counsellor</li>
             <li>Education</li>
           </ul>
           <h2>Tools</h2>
           <ul>
             <li>Contact us</li>
-            <li><Link to="/"><CiLogout style={{fontSize:"17px",margin:"0px 5px -4px -3px"}}/>Logout</Link></li>
+            <li>
+              <Link to="/">
+                <CiLogout
+                  style={{ fontSize: "17px", margin: "0px 5px -4px -3px" }}
+                />
+                Logout
+              </Link>
+            </li>
           </ul>
         </div>
       </Modal>
+
+      {/* Student Details */}
+
       <div className="Nav-right">
-        <h3>{userdata.name}</h3>
-        <div className="stu-img" onClick={() => setVisible(true)}></div>
+        <h3 onClick={() => setdet_Visible(true)} style={{ cursor: "pointer" }}>
+          {userdata.name}
+        </h3>
+        <div className="stu-img" onClick={() => setdet_Visible(true)}></div>
       </div>
       <Modal
-        isOpen={visible}
-        onRequestClose={() => setVisible(false)}
+        isOpen={det_visible}
+        onRequestClose={() => setdet_Visible(false)}
         style={{
           content: {
-            width: "fit-content",
-            height: "fit-content",
+            // backgroundColor: "#e1edf7",
+            width: "0",
+            height: "0",
             overflow: "hidden",
             top: "10%",
-            left:"",
+            left: "-1%",
             borderRadius: "20px",
-            border: "2px solid black",
+            border: "none",
           },
         }}
       >
         {
           <div className="stu-details">
-            Name: {userdata.name}
+            Name : {userdata.name}
             <br />
-            Rollno: {userdata.rollno}
+            Rollno : {userdata.rollno}
             <br />
-            Phone:{userdata.phoneno}
+            <button className="change-password" onClick={openChangePassword}>
+              change password
+              <IoIosArrowForward
+                style={{ fontSize: "17px", margin: "0px -7px -4px 10px" }}
+              />
+            </button>
           </div>
         }
       </Modal>
+      
+      {/* Change Password */}
+
+      <Modal
+        isOpen={showChangePassword}
+        // onRequestClose={() => setShowChangePassword(false)}
+        style={{
+          content: {
+            backgroundColor: "none",
+            // width: "fit-content",
+            height: "fit-content",
+            padding: "0",
+            overflow: "hidden",
+            top: "10%",
+            left: "",
+            borderRadius: "20px",
+            // border: "1px solid black",
+          },
+        }}
+      >
+        <div className="modal-changepass">
+          <Changepassword 
+          isVisible={showChangePassword}
+          closemodal={openChangePassword}
+          roll={userdata.rollno}
+          />
+        </div>
+      </Modal>
     </nav>
-    // </div>
   );
 };
 

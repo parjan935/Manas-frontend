@@ -18,9 +18,9 @@ import Login from "./Login-registration/Login.jsx";
 import Buttons from "./Login-registration/Buttons.jsx";
 import Signup from "./Login-registration/Signup.jsx";
 import Asnmt_page from "./Asnmt_page.jsx";
+import Forgetpassword from "./Forgetpassword.jsx";
 
 const App = () => {
-
 
   return (
     <div className="body">
@@ -33,6 +33,7 @@ const App = () => {
         <Route path="/dashboard/assessment" element={<Asnmt_page/>}/>
         <Route path="/dashboard" element={<Dashboad/>}/>
         <Route path="/dashboard/calendar" element={<GoogleCalendar/>}/>
+        <Route path="/Pasword-reset" element={<Forgetpassword/>}/>
       </Routes>
     </div>
   );

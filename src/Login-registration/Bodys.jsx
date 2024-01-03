@@ -17,12 +17,7 @@ const Bodys = () => {
         </div>
         <div className="bodyright">
           <h1>Manas health care</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-            vero repudiandae nam nisi deleniti architecto laboriosam, accusamus
-            a rem voluptatem doloremque neque et hic dolor. Molestiae voluptates
-            similique neque illum!
-          </p>
+          <p>Project Manas Health stands as a beacon of innovation in addressing the mental health challenges faced by students returning to in-person schooling post-pandemic.</p>
           <Buttons />
         </div>
       </div>

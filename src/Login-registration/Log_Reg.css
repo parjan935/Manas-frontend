@@ -188,6 +188,20 @@ a {
   align-items: center;
   grid-column-start: 1;
   grid-column-end: 4;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  animation: login 0.5s forwards;
+}
+
+@keyframes login {
+  0%{
+    bottom: -100%;
+  }
+  100%{
+    bottom: 60%;
+  }
 }
 
 .login-box {
@@ -196,12 +210,13 @@ a {
   align-items: center;
   height: fit-content;
   width: 350px;
-  margin: 50px 0px 30px 0px;
+  margin: 50px 0 30px 0;
   padding: 20px;
   background-color: rgb(242, 242, 242);
   border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
 }
+
 
 .login-box h2 {
   /* font-family: "Pacifico", cursive; */
@@ -227,6 +242,7 @@ a {
 }
 
 .forget {
+  cursor: pointer;
   font-size: 15px;
   margin: 20px;
   color: black;
@@ -239,9 +255,7 @@ a {
 }
 
 .lg-btn {
-  padding: 0px;
   text-decoration: none;
-
   align-self: center;
   margin: 0px 0px 20px 0px;
   width: 300px;
@@ -281,6 +295,8 @@ a {
 .su-anc:active {
   color: rgb(65, 171, 213);
 }
+
+
 
 /*    Signup.jsx CSS     */
 
@@ -375,6 +391,10 @@ a {
 /* For smaller screens (phones) */
 @media only screen and (max-width: 750px) {
   /* Your CSS styles here */
+.manas{
+  font-size: 25px;
+}
+
   .nav-item{
     display: none;
   }
@@ -406,6 +426,42 @@ a {
   }
   .menu{
     display: flex;
+  }
+
+  /* login.jsx */
+
+  .login-box{
+    width: 300px;
+  }
+  .login-box h2{
+    font-size: 25px;
+  }
+  .login-box input{
+    width: 250px;
+    height: 20px;
+  }
+  .lg-btn{
+    width: 250px;
+    height: 30px;
+  }
+
+
+
+  /* signup,jsx */
+
+  .signupbox{
+    width: 300px;
+  }
+  .signupbox h2{
+    font-size: 25px;
+  }
+  .signupint{
+    width: 250px;
+    height: 20px;
+  }
+
+  .endbtns {
+    width: 290px;
   }
 }
 

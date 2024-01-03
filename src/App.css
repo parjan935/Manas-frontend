@@ -70,7 +70,6 @@ a {
 
 /* Navbar.jsx CSS */
 
-
 .modal-side {
   background-color: rgb(227, 238, 248);
   width: fit-content;
@@ -79,14 +78,14 @@ a {
   grid-column-start: 1;
   grid-column-end: 2;
   position: fixed;
-  animation: all 0.3s forwards;
+  animation: slide-menu 0.3s forwards;
 }
 
-@keyframes all {
-  0%{
+@keyframes slide-menu {
+  0% {
     left: -20%;
   }
-  100%{
+  100% {
     left: 0;
   }
 }
@@ -127,7 +126,6 @@ a {
   background-color: rgb(210, 223, 238);
 }
 
-
 .Navbar {
   background-color: rgb(207, 226, 243);
   height: fit-content;
@@ -160,6 +158,7 @@ a {
 
 .Nav-left h1 {
   margin: 0;
+  width: fit-content;
   font-size: 50px;
   font-weight: 500;
 }
@@ -195,9 +194,187 @@ a {
   background-color: rgb(236, 233, 233);
 }
 
-.stu-details{ 
+.stu-details {
+  background-color: #e1edf7;
   font-size: 17px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  position: fixed;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  top: 10px;
+  right: 5px;
+  animation: details 0.5s forwards ease-in-out;
 }
+
+@keyframes details {
+  0%{
+    right: 5%;
+    top: 5%;
+  }
+  100%{
+    right: 5%;
+    top: 10%;
+  }
+}
+
+/*   Changepassword.jsx   */
+
+.CP-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  /* position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  animation: login 0.5s forwards; */
+}
+
+.CP-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+  width: 350px;
+  margin: 50px 0 30px 0;
+  padding: 20px;
+  background-color: rgb(242, 242, 242);
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+
+.CP-box h2 {
+  /* font-family: "Pacifico", cursive; */
+  font-size: 30px;
+  margin: 10px 0px 0px 0px;
+}
+
+.CP-box label {
+  font-weight: 800;
+  margin: 15px 0px 9px 20px;
+  align-self: flex-start;
+  font-weight: 600;
+}
+
+.CP-box input {
+  width: 300px;
+  height: 25px;
+  padding: 7px 10px 7px 10px;
+  border-radius: 5px;
+  border: 2px solid gray;
+  align-self: center;
+  font-size: 15px;
+}
+
+
+
+.change-password {
+  background-color: #c2def4;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 3px 10px;
+  margin: 15px auto 0px auto;
+  cursor: pointer;
+}
+
+.changepass button {
+  margin: 40px auto 20px auto;
+}
+
+.changepass {
+  margin: 0;
+}
+
+.modal-changepass {
+  position: fixed;
+  animation: all 0.3s forwards;
+}
+
+@keyframes all {
+  0% {
+    right: -20%;
+  }
+  100% {
+    right: 5%;
+  }
+}
+
+.close-CP {
+  align-self: end;
+  height: fit-content;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.close-CP:hover {
+  background-color: rgb(198, 196, 196);
+}
+
+.close-CP:active {
+  background-color: rgb(217, 217, 217);
+}
+
+
+/* ForgetPassword.jsx */
+
+.Forget-password{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(242, 242, 242);
+  margin: auto;
+  padding: 20px;
+  border-radius: 20px;
+  width: 350px;
+  border: none;
+}
+
+.Forget-password input {
+  width: 300px;
+  height: 25px;
+  padding: 7px 10px 7px 10px;
+  border-radius: 5px;
+  border: 2px solid gray;
+  align-self: center;
+  font-size: 15px;
+}
+
+.Forget-password label {
+  font-weight: 800;
+  margin: 15px 0px 9px 20px;
+  align-self: flex-start;
+  font-weight: 600;
+}
+
+.Forget-password button{
+  text-decoration: none;
+  align-self: center;
+  margin: 30px 0px 20px 0px;
+  width: 150px;
+  height: 35px;
+  border-radius: 5px;
+  background-color: #11af22;
+  border: 2px solid #11af22;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0px;
+
+}
+
+
+
+
+
 
 /* Results_graph.jsx CSS */
 
@@ -393,7 +570,7 @@ a {
   grid-row-end: 4;
 }
 
-.form h2{
+.form h2 {
   font-weight: 500;
 }
 
@@ -453,11 +630,11 @@ input[type="radio"] {
   .left-menu li {
     display: flex;
   }
-  .GoogleCalendar{
+  .GoogleCalendar {
     grid-column-start: 1;
     grid-column-end: 4;
   }
-  .form{
+  .form {
     grid-column-start: 1;
     grid-column-end: 4;
   }
@@ -466,32 +643,32 @@ input[type="radio"] {
     grid-column-end: 4;
     left: 0;
     width: 100%;
-    position:fixed;
-  }
-  .Nav-right h3 {
-    display: none;
+    position: fixed;
   }
   .Nav-left p {
     display: none;
   }
-  
+
   .Nav-left h1 {
     font-size: 35px;
   }
-  .modal-side{
+  .modal-side {
     width: 100px;
   }
   .modal-side h1 {
     font-size: 20px;
   }
+  .Nav-right h3{
+    display: none;
+  }
 
-  .modal-side h2{
+  .modal-side h2 {
     font-size: 18px;
   }
-  .modal-side{
+  .modal-side {
     font-size: 12px;
   }
-  .stu-details{
+  .stu-details {
     /* modal */
     font-size: 13px;
   }
@@ -512,33 +689,53 @@ input[type="radio"] {
     width: fit-content;
     margin: 30px auto;
   }
-}
 
+
+  /* Changepassword.jsx */
+
+  .CP-box{
+    width: 300px;
+  }
+  .CP-box h2{
+    font-size: 25px;
+  }
+  .CP-box input{
+    width: 250px;
+    height: 20px;
+  }
+  .lg-btn{
+    width: 250px;
+    height: 30px;
+  }
+
+
+
+
+}
 
 /* For tablets */
 @media only screen and (min-width: 750px) and (max-width: 1024px) {
-
   /* Navbar */
-  .Navbar{
+  .Navbar {
     position: fixed;
     right: 0;
     top: 0;
     left: 19%;
   }
-  .Nav-left h1{
+  .Nav-left h1 {
     font-size: 35px;
   }
-  .Nav-left p{
+  .Nav-left p {
     font-size: 10px;
   }
   .Nav-right h3 {
     font-size: 15px;
   }
-  .stu-details{
+  .stu-details {
     font-size: 15px;
   }
   /* Sidebar */
-  .Sidebar{
+  .Sidebar {
     position: fixed;
     width: 15%;
     padding: 3vh 2%;
@@ -548,10 +745,10 @@ input[type="radio"] {
     width: fit-content;
     padding: 8px 10px;
   }
-  .Sidebar h2{
+  .Sidebar h2 {
     font-size: 18px;
   }
-  .Sidebar li{
+  .Sidebar li {
     font-size: 12px;
   }
 
@@ -576,17 +773,15 @@ input[type="radio"] {
 
 /* For larger screens (desktops) */
 @media only screen and (min-width: 1025px) {
-
-  .Sidebar{
+  .Sidebar {
     position: fixed;
     width: 17%;
     padding: 3vh 1%;
   }
-  .Navbar{
+  .Navbar {
     position: fixed;
     right: 0;
     top: 0;
     left: 19%;
   }
-
 }

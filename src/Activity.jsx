@@ -7,7 +7,7 @@ const Activity = () => {
       <h3># Your weekly activity #</h3>
       <Link to="/dashboard/assessment" className='Activity-item'> 
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC9_bqR2LJpKs16I5Wnuew0WvwjjHTzzTU6Q&usqp=CAU" alt="" className='Activity-img'/>
-        Quizes
+        Assessment
       </Link>
       <div className='Activity-item'>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXtOvpfcFsOvEpOJUC266YvOfPlOwXC2CXJA&usqp=CAU" alt="" className='Activity-img'/>

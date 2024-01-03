@@ -28,7 +28,7 @@ const Nav = () => {
           <a href="https://www.medicalnewstoday.com/articles/154543" target="_blank">
             <li><CiCircleMore style={{fontSize:"25px",margin:"0px 3px -5px 0px" }}/>About us</li>
           </a>
-          <a href="mailto:22bd1a0565@gmail.com?subject= &body=">
+          <a href="mailto:22bd1a0565@gmail.com?subject=MANAS HEALTH &body=">
             <li><IoIosContact style={{fontSize:"25px",margin:"0px 3px -5px 0px" }}/>Contact us</li>
           </a>
         </ul>
@@ -43,7 +43,7 @@ const Nav = () => {
             height: "fit-content",
             overflow: "hidden",
             top: "7%",
-            left:"75%",
+            left:"",
             borderRadius: "20px",
             border: "2px solid black",
             padding:"0px",
@@ -56,7 +56,7 @@ const Nav = () => {
             <Link>
               <li><CiCircleMore style={{fontSize:"23px",margin:"0px 3px -5px 0px" }}/>About us</li>
             </Link>
-            <a href="mailto:22bd1a0565@gmail.com?subject= &body=">
+            <a href="mailto:22bd1a0565@gmail.com?subject=MANAS HEALTH &body=">
               <li><IoIosContact style={{fontSize:"25px",margin:"0px 3px -5px 0px" }}/>Contact us</li>
             </a>
           </ul>
