@@ -36,7 +36,7 @@ const Navbar = () => {
           return;
         }
         const response = await axios.get(
-          "http://localhost:3000/api/users/student-profile",
+          "http://localhost:2000/api/users/student-profile",
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
@@ -49,15 +49,15 @@ const Navbar = () => {
         if (response && response.data) {
           p = response.data;
           setuserdata({
-            name: p.name,
-            rollno: p.rollno,
-            phoneno: p.phoneno,
-            section: p.section,
-            email: p.email,
-            password: p.password,
+            name: response.data.name,
+            rollno: response.data.rollno,
+            phoneno: response.data.phoneno,
+            section: response.data.section,
+            email: response.data.email,
+            password: response.data.password,
           });
-          // console.log("v==", v);
           console.log(response.data);
+          // console.log("v==", v);
           // console.log("p==", p);
           // console.log("p==", p.name);
         }
@@ -100,7 +100,7 @@ const Navbar = () => {
 
       <Modal
         isOpen={menu_visible}
-        // onRequestClose={() => setmenu_Visible(false)}
+        onRequestClose={() => setmenu_Visible(false)}
         style={{
           content: {
             width: "fit-content",

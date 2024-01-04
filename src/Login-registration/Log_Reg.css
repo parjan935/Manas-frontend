@@ -1,8 +1,8 @@
-/* body {
-  margin: 0;
-  background-color: rgb(233 227 216);
-    font-family: "Pacifico", cursive;
-  } */
+body {
+  /* margin: 0; */
+  /* background-color: rgb(233 227 216); */
+    /* font-family: "Pacifico", cursive; */
+  }
 
 a {
   color: black;
@@ -14,7 +14,7 @@ a {
   display: grid;
   height: 100vh;
   grid-template-columns: 19% 1fr 1fr;
-  grid-template-rows: 10% 1fr 1fr;
+  grid-template-rows: 10% 1fr 1fr 1fr;
 }
 
 /*      Buttons.jsx CSS    */
@@ -58,6 +58,10 @@ a {
   padding: 0;
   grid-column-start: 1;
   grid-column-end: 4;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 
 .lgn-nav a {
@@ -127,17 +131,13 @@ a {
 
 .body-top {
   display: flex;
+  margin-top: 70px;
   flex-wrap: wrap;
   flex-direction: row;
   grid-column-start: 1;
   grid-column-end: 4;
 }
 
-/* .bodyleft p {
-  height: 30px;
-  width: 30px;
-  width: fit-content;
-} */
 
 .bodyleft {
   background-image: url("https://media.istockphoto.com/id/1294477039/vector/metaphor-bipolar-disorder-mind-mental-double-face-split-personality-concept-mood-disorder-2.jpg?s=612x612&w=0&k=20&c=JtBxyFapXIA63hzZk_F5WNDF92J8fD2gIFNX3Ta4U3A=");

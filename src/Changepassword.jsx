@@ -6,25 +6,30 @@ import axios from "axios";
 
 import { IoClose } from "react-icons/io5";
 
-const Changepassword = ({ isVisible, closemodal,roll}) => {
+const Changepassword = ({ isVisible, closemodal, roll }) => {
+
+  const navigate = useNavigate();
+
   const [data, setData] = useState({
-    rollno:{roll},
+    rollno: roll,
     password: "",
-    changepassword: "",
+    newpassword: "",
+    confirmpassword: "",
   });
+  
 
-  const [confirmNewpass, setconfirmNewpass] = useState("");
+  // const [confirmNewpass, setconfirmNewpass] = useState("");
 
-  const [err,seterr]=useState('')
+  const [err, seterr] = useState("");
 
   const click = async (e) => {
-    e.preventDeafault();
+    e.preventDefault();
 
-    if (data.changepassword == confirmNewpass) {
-      seterr('')
+    if (data.newpassword === data.confirmpassword) {
+      seterr("");
       try {
         const response = await axios.post(
-          "http://localhost:3000/api/users/student-passwordChange",
+          "http://localhost:2000/api/users/student-passwordChange",
           data,
           {
             headers: {
@@ -34,30 +39,31 @@ const Changepassword = ({ isVisible, closemodal,roll}) => {
         );
 
         alert("Password changed successfully!");
-        console.log("Password changed successfully!")
+        console.log("Password changed successfully!");
 
         setData({
+          rollno: "",
           password: "",
-          changepassword: "",
+          newpassword: "",
+          confirmpassword: "",
         });
 
-        setconfirmNewpass("");
+        navigate("/student-login")
+        alert("Please login again after changing the password.")
 
-        console.log(response.data);
+        // console.log(response.data)
+
       } catch (error) {
         if (error.response && error.response.status === 400) {
-          const { data } = error.response;
-          console.log(data);
-          console.log("password error")
-          seterr(data.error)
-
-        } 
-        // else {
-        //   alert("Failed to submit the form. Please try again.");
-        // }
+          console.log("password error = ",error.response.data.error);
+          seterr(error.response.data.error);
+        }
+        else {
+          alert("Failed to submit the form. Please try again.");
+        }
       }
-    }else{
-      seterr('New password did not match')
+    } else {
+      seterr("*New password did not match");
     }
   };
 
@@ -70,40 +76,64 @@ const Changepassword = ({ isVisible, closemodal,roll}) => {
         <form id="student" className="CP-box changepass" onSubmit={click}>
           <IoClose className="close-CP" onClick={closemodal} />
           <h2>Change password</h2>
-          <label className="details" htmlFor="S-Username">
+
+
+          <label className="details" htmlFor="rollno" style={{display:"none"}}>
+            Username
+          </label>
+          <input
+            className="input"
+            type="text"
+            id="rollno"
+            name="rollno"
+            placeholder="Enter current rollno"
+            value={data.rollno}
+            onChange={(e) => setData({ ...data, rollno: e.target.value })}
+            style={{ display: "none" }}
+            required
+          />
+
+          <label className="details" htmlFor="password">
             Current Password
           </label>
           <input
             className="input"
             type="password"
-            // id="S-Username"
+            id="password"
+            name="password"
             placeholder="Enter current password"
-            value={data.currentpass}
+            value={data.password}
             onChange={(e) => setData({ ...data, password: e.target.value })}
             required
           />
-          <label className="details" htmlFor="S-Password">
+          <label className="details" htmlFor="newpassword">
             New Password
           </label>
           <input
             className="input"
             type="password"
-            // id="S-Password"
+            id="newpassword"
+            name="newpassword"
             placeholder="Enter New Password"
-            value={data.newpass}
-            onChange={(e) => setData({ ...data, changepassword: e.target.value })}
+            value={data.newpassword}
+            onChange={(e) =>
+              setData({ ...data, newpassword: e.target.value })
+            }
             required
           />
-          <label className="details" htmlFor="S-Password">
+          <label className="details" htmlFor="confirmpassword">
             Confirm New Password
           </label>
           <input
             className="input"
             type="password"
-            // id="S-Password"
+            id="confirmpassword"
+            name="confirmpassword"
             placeholder="Re-enter New Password"
-            value={confirmNewpass}
-            onChange={(e) => setconfirmNewpass(e.target.value)}
+            value={data.confirmpassword}
+            onChange={(e) =>              
+               setData({ ...data, confirmpassword: e.target.value })
+          }
             required
           />
           <p>{err}</p>

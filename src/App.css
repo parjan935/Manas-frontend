@@ -12,8 +12,8 @@ a {
 .body {
   display: grid;
   height: 100vh;
-  grid-template-columns: 230px 1fr 1fr;
-  grid-template-rows: 10% 1fr 1fr;
+  grid-template-columns: 19% 1fr 1fr;
+  grid-template-rows: 10% 1fr 1fr 1fr;
 }
 
 /* Sidebar.jsx CSS */
@@ -285,11 +285,20 @@ a {
 }
 
 .changepass button {
-  margin: 40px auto 20px auto;
+  margin: 10px auto 20px auto;
 }
 
 .changepass {
   margin: 0;
+}
+
+.changepass p{
+  display: block;
+  padding: 0;
+  margin: 10px 0px 0px 0px;
+  color: red;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .modal-changepass {
@@ -618,6 +627,165 @@ input[type="radio"] {
   font-weight: bold;
   font-size: 15px;
 }
+
+
+/* contactus  */
+
+.contact {
+  border: none;
+  background-color: rgb(227, 238, 248);
+}
+
+.contact:hover {
+  background-color: rgb(210, 223, 238);
+}
+
+.contactbox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #e6f1f6;
+  margin: 0px;
+  height: 50vh;
+  width: 50vw;
+  border-radius: 20px;
+
+  /* Add responsive styling */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+}
+
+.contactphone,
+.contactemail,
+.contactchatbot {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.phoneimage,
+.emailimage,
+.chatbotimage {
+  margin-bottom: 10px;
+}
+
+.info {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.phoneNo a,
+.email a {
+  color: rgb(53, 167, 219);
+  text-decoration: none;
+}
+
+.phoneNo a:hover,
+.email a:hover {
+  text-decoration: underline;
+}
+.Contactmodal {
+  position: fixed;
+  animation: slideInFromDown 0.3s forwards;
+  top: -100%; /* Initial position above the viewport */
+}
+
+/* counsellor */
+
+.councellerbox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0px;
+  height: 300px;
+  width: 600px;
+  background-color: #e6f1f6;
+  border-radius: 10px;
+}
+
+.psychiatrist, .chat {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.psychiatristimage,.chatimage {
+  background-color: #e6f1f6;
+  border: none; 
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  display: flex;
+  margin: auto;
+  transition: slideInFromDown 0.3s, color 0.3s;
+}
+
+button:hover {
+   /* Set your desired hover background color */
+  color: #ffffff; /* Set your desired hover text color */
+}
+
+
+/* Footer,jsx */
+
+.site-footer {
+  background-color: #f8f8f8;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100vw;
+  height: fit-content;
+  align-self: self-end;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  position: fixed;
+  bottom: 0;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.facebook,.twitter,.instagram {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.facebook:hover {
+  color: #007bff;
+}
+.twitter:hover{
+  color: black;
+
+}
+.instagram:hover{
+  color:rgb(194, 15, 15)
+}
+
+
+
+@keyframes slideInFromDown {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 5%;
+  }
+}
+
+
+
+
+
 
 /*    MEDIA QUERIES    */
 

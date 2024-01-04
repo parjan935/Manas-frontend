@@ -21,7 +21,7 @@ const Login = ({ name }) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/users/student-login",
+        "http://localhost:2000/api/users/student-login",
         data,
         {
           headers: {
@@ -38,6 +38,8 @@ const Login = ({ name }) => {
         console.log("login successful");
         console.log("Access Token:", accessToken);
         navigate("/dashboard");
+        alert("login successful");
+        // toast('Login Successful')
       } else {
         alert("no token recieved");
         console.log(response.data);
@@ -58,7 +60,7 @@ const Login = ({ name }) => {
   return (
     <>
       <Nav />
-
+      {/* <ToastContainer/> */}
       <div className="Lgn-body" >
         <form id="student" className="login-box" onSubmit={click}>
           <h2>{name}'s Login</h2>
