@@ -1,8 +1,8 @@
 body {
-  /* margin: 0; */
-  /* background-color: rgb(233 227 216); */
-    /* font-family: "Pacifico", cursive; */
-  }
+  margin: 0;
+  background-color: rgb(243, 247, 251);
+  font-family: "Pacifico", cursive;
+}
 
 a {
   color: black;
@@ -25,7 +25,7 @@ a {
   padding: 0px;
   justify-content: center;
   width: fit-content;
-  margin: auto;
+  margin: 0px auto;
   text-align: center;
 }
 
@@ -38,13 +38,12 @@ a {
   width: fit-content;
 }
 
-.lgn-btns a:active{
+.lgn-btns a:active {
   color: white;
   background-color: rgb(93, 93, 93);
 }
 
 /*     Nav.jsx CSS      */
-
 
 .lgn-nav {
   display: flex;
@@ -77,7 +76,6 @@ a {
   cursor: pointer;
 }
 
-
 .nav-item {
   display: flex;
   list-style: none;
@@ -85,31 +83,31 @@ a {
   padding: 0;
 }
 
-.nav-item  a   li {
+.nav-item a li {
   padding: 8px 25px;
   margin: auto 5px;
   cursor: pointer;
   border-radius: 20px;
 }
 
-.nav-item  a  li:hover {
+.nav-item a li:hover {
   background-color: rgb(216, 216, 216);
   color: black;
 }
 
-.nav-item  a  li:active {
+.nav-item a li:active {
   background-color: rgb(188, 187, 187);
   color: black;
 }
 
-.menu{
+.menu {
   display: none;
   cursor: pointer;
   margin: auto 10px;
   list-style: none;
 }
 
-.menu-item{
+.menu-item {
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -118,14 +116,13 @@ a {
   width: fit-content;
 }
 
-.menu-item a li{
+.menu-item a li {
   padding: 10px 10px 8px 10px;
 }
 
-.menu-item a li:hover{
+.menu-item a li:hover {
   background-color: rgb(223, 222, 222);
 }
-
 
 /*    Bodys.jsx CSS     */
 
@@ -137,7 +134,6 @@ a {
   grid-column-start: 1;
   grid-column-end: 4;
 }
-
 
 .bodyleft {
   background-image: url("https://media.istockphoto.com/id/1294477039/vector/metaphor-bipolar-disorder-mind-mental-double-face-split-personality-concept-mood-disorder-2.jpg?s=612x612&w=0&k=20&c=JtBxyFapXIA63hzZk_F5WNDF92J8fD2gIFNX3Ta4U3A=");
@@ -165,18 +161,27 @@ a {
 }
 
 .bodyright {
+  background-color: rgb(233 227 216);
+  height: 668px;
+  width: 40%;
   margin: auto;
-  width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-.bodyright h1{
+.bodyright h1 {
   display: none;
   font-size: 60px;
   margin: 0;
+}
+
+
+.bodyright p{
+  width: 80%;
+  margin: 0px auto 20px auto;
 }
 
 /*     Login.jsx CSS     */
@@ -196,10 +201,10 @@ a {
 }
 
 @keyframes login {
-  0%{
+  0% {
     bottom: -100%;
   }
-  100%{
+  100% {
     bottom: 60%;
   }
 }
@@ -216,7 +221,6 @@ a {
   border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
 }
-
 
 .login-box h2 {
   /* font-family: "Pacifico", cursive; */
@@ -295,8 +299,6 @@ a {
 .su-anc:active {
   color: rgb(65, 171, 213);
 }
-
-
 
 /*    Signup.jsx CSS     */
 
@@ -383,25 +385,22 @@ a {
   font-weight: 500;
 }
 
-
-
 /*    MEDIA QUERIES    */
-
 
 /* For smaller screens (phones) */
 @media only screen and (max-width: 750px) {
   /* Your CSS styles here */
-.manas{
-  font-size: 25px;
-}
+  .manas {
+    font-size: 25px;
+  }
 
-  .nav-item{
+  .nav-item {
     display: none;
   }
-  .bodyleft{
+  .bodyleft {
     display: none;
   }
-  .bodyright{
+  .bodyright {
     background-image: url("https://media.istockphoto.com/id/1294477039/vector/metaphor-bipolar-disorder-mind-mental-double-face-split-personality-concept-mood-disorder-2.jpg?s=612x612&w=0&k=20&c=JtBxyFapXIA63hzZk_F5WNDF92J8fD2gIFNX3Ta4U3A=");
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -413,49 +412,47 @@ a {
     width: 100%;
     height: 668px;
   }
-  .bodyright p{
-    margin:  0px 100px;
+  .bodyright p {
+    margin: 0px 100px;
   }
-  .bodyright h1{
+  .bodyright h1 {
     display: flex;
   }
-  .lgn-btns{
+  .lgn-btns {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     margin: 20px auto;
   }
-  .menu{
+  .menu {
     display: flex;
   }
 
   /* login.jsx */
 
-  .login-box{
+  .login-box {
     width: 300px;
   }
-  .login-box h2{
+  .login-box h2 {
     font-size: 25px;
   }
-  .login-box input{
+  .login-box input {
     width: 250px;
     height: 20px;
   }
-  .lg-btn{
+  .lg-btn {
     width: 250px;
     height: 30px;
   }
 
-
-
   /* signup,jsx */
 
-  .signupbox{
+  .signupbox {
     width: 300px;
   }
-  .signupbox h2{
+  .signupbox h2 {
     font-size: 25px;
   }
-  .signupint{
+  .signupint {
     width: 250px;
     height: 20px;
   }
